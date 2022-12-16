@@ -1,0 +1,11 @@
+; polls
+
+(defpoll time0 :interval "10s"  "date '+%H':%M")
+(defpoll date :interval "10s"  "date '+%b %d'")
+
+(defpoll memory :interval "15s" "scripts/memory.sh")
+(defpoll cpu :interval "15s" "scripts/cpu.sh")
+
+(defpoll song_artist :interval "100ms"  "scripts/music.sh")
+
+(defpoll ws :interval "1ms" "scripts/workspaces.sh")

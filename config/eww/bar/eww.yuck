@@ -1,0 +1,19 @@
+; includes:
+
+;pollers
+(include "pollers.yuck")
+
+;widgets
+(include "widgets.yuck")
+
+;windows
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x "0px"
+                        :y "15px"
+                        :width "97.5%"
+                        :height "40px"
+                        :anchor "top center")
+    :reserve (struts :side "bottom" :distance "0%")
+    (bar))

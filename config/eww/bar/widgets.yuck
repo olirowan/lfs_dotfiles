@@ -1,0 +1,88 @@
+; widgets
+(defwidget bar []
+    (box :class "bar"
+         :orientation "h"
+         (music)
+         (workspaces)
+         (power-time-cpu-mem)))
+
+(defwidget powermenu []
+     (box :class "powermenu"
+          :orientation "v"
+          (lock-power-restart)))
+
+
+(defwidget sep []
+  (box :orientation "h"
+       :valign "center"
+       (label :class "sepbar" :text "|")))
+
+(defwidget workspaces []
+     (literal :content ws))
+
+(defwidget music []
+    (box :class "music"
+         :orientation "h"
+         :space-evenly false
+         :halign "start"
+         :valign "center"
+         :tooltip "music"
+                   (box :orientation "h"
+                        :space-evenly "false"
+                        :halign "start"
+                        :valign "center"
+                        (label :class "music-label"
+                               :text song_artist
+                               :wrap "false"))))
+
+(defwidget cpu-and-mem []
+    (box :class "cpu-and-mem"
+         :orientation "h"
+         :halign "end"
+         :valign "center"
+         :space-evenly "false"
+         (circular-progress :class "cpu"
+                            :tooltip "using ${cpu}% cpu"
+                            :value cpu
+                            :thickness 12)
+         (circular-progress :class "mem"
+                            :tooltip "using ${memory}% ram"
+                            :value memory
+                            :thickness 12)))
+
+(defwidget power-time-cpu-mem []
+    (box :class "time-cpu-mem"
+         :halign "end"
+         :valign "center"
+         :space-evenly "false"
+         :orientation "h"
+         (sep)
+         (cpu-and-mem)
+         (sep)
+         (label :text "${date}  //  "
+                :class "time-label"
+                :halign "end"
+                :valign "center"
+                :space-evenly "false"
+                :tooltip "time"
+                :orientation "h")
+         (label :text time0
+                :class "time-label"
+                :halign "end"
+                :valign "center"
+                :space-evenly "false"
+                :tooltip "time"
+                :orientation "h"
+                )
+          (sep)
+          (power)))
+
+(defwidget power []
+     (box :orientation "h"
+          :halign "end"
+          :valign "center"
+          :space-evenly "false"
+          (button :onclick "~/.config/eww/bar/scripts/power.sh"
+                  :class "power-icon"
+                  :tooltip "power off"
+                  "⏻")))
