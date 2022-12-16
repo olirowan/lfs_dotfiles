@@ -10,8 +10,6 @@ Pretty minimal dotfiles for an LFS build, with _bspwm_ &amp; Eww
 
 ## Resources
 
-<br>
-
 #### Linux From Scratch
 
  - [LFS 11.2](https://www.linuxfromscratch.org/lfs/view/stable-systemd/)
